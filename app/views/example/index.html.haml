@@ -1,0 +1,6 @@
+%h1 Index
+%p Find me ain app/views/example/index.html.haml
+- @examples.each do |example|
+  %p
+    \- #{example.name.downcase}
+    = example.age
