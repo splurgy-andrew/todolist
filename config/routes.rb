@@ -1,4 +1,7 @@
 TodoList::Application.routes.draw do
+  resources :tasks
+
+
   get "example/index"
 
   get "example/about"
