@@ -1,0 +1,14 @@
+%h1 Todo List (Index)
+= link_to "new", new_task_url
+- if flash[:notice]
+  %h2 #{flash[:notice]}
+- if @tasks.length == 0
+  %h3 there is nothing here, add a task
+- else
+  %h3 your tasks
+  %p
+    - @tasks.each do |task|
+      %br #{task.inspect}
+      %br
+        = link_to "edit", (edit_task_url :id => task.id)
+        = button_to "delete", task, :method => :delete

@@ -31,4 +31,10 @@ class TasksController < ApplicationController
     Task.create(@task)
     redirect_to tasks_url, :notice => "successfully created task"
   end
+
+  def destroy
+    @task = Task.find(params[:id])
+    @task.delete
+    redirect_to tasks_url, :notice => "successfully deleted task"
+  end
 end
