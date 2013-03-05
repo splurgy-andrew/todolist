@@ -1,10 +1,20 @@
-%h1 Todo List Task (New)
-
-= form_for(@task) do |f|
-  = f.label :title
-  = f.text_field :title
-  = f.label :completed
-  = f.check_box :completed
-  = f.label :position
-  = f.text_field :position
-  = f.submit 'Create'
+- if params[:action] == "new"
+  %h1 Todo List Task (New)
+  = form_for(@task) do |f|
+    = f.label :title
+    = f.text_field :title
+    = f.label :completed
+    = f.check_box :completed
+    = f.label :position
+    = f.text_field :position
+    = f.submit 'Create'
+- elsif params[:action] == "edit"
+  %h1 Todo List Task (Edit)
+  = form_for(@task) do |f|
+    = f.label :title
+    = f.text_field :title, :value => @task.title
+    = f.label :completed
+    = f.check_box :completed, :value => @task.completed
+    = f.label :position
+    = f.text_field :position, :value => @task.position
+    = f.submit 'Edit'
