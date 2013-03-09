@@ -1,14 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/angela/Documents/RubyMine Projects/playground/todo_list/config/environment.rb": [
+      "/Users/andrew/Documents/playground/andrew_todo_list/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/Users/angela/Documents/RubyMine Projects/playground/todo_list/config/application.rb": [
+      "/Users/andrew/Documents/playground/andrew_todo_list/config/application.rb": [
         1,
         null,
         1,
@@ -72,7 +72,7 @@
         null,
         null
       ],
-      "/Users/angela/Documents/RubyMine Projects/playground/todo_list/config/boot.rb": [
+      "/Users/andrew/Documents/playground/andrew_todo_list/config/boot.rb": [
         1,
         null,
         null,
@@ -80,7 +80,7 @@
         null,
         1
       ],
-      "/Users/angela/Documents/RubyMine Projects/playground/todo_list/config/environments/test.rb": [
+      "/Users/andrew/Documents/playground/andrew_todo_list/config/environments/test.rb": [
         1,
         null,
         null,
@@ -119,7 +119,7 @@
         1,
         null
       ],
-      "/Users/angela/Documents/RubyMine Projects/playground/todo_list/config/initializers/backtrace_silencers.rb": [
+      "/Users/andrew/Documents/playground/andrew_todo_list/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -128,7 +128,7 @@
         null,
         null
       ],
-      "/Users/angela/Documents/RubyMine Projects/playground/todo_list/config/initializers/inflections.rb": [
+      "/Users/andrew/Documents/playground/andrew_todo_list/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -145,14 +145,14 @@
         null,
         null
       ],
-      "/Users/angela/Documents/RubyMine Projects/playground/todo_list/config/initializers/mime_types.rb": [
+      "/Users/andrew/Documents/playground/andrew_todo_list/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null,
         null
       ],
-      "/Users/angela/Documents/RubyMine Projects/playground/todo_list/config/initializers/secret_token.rb": [
+      "/Users/andrew/Documents/playground/andrew_todo_list/config/initializers/secret_token.rb": [
         null,
         null,
         null,
@@ -161,7 +161,7 @@
         null,
         1
       ],
-      "/Users/angela/Documents/RubyMine Projects/playground/todo_list/config/initializers/session_store.rb": [
+      "/Users/andrew/Documents/playground/andrew_todo_list/config/initializers/session_store.rb": [
         null,
         null,
         1,
@@ -171,7 +171,7 @@
         null,
         null
       ],
-      "/Users/angela/Documents/RubyMine Projects/playground/todo_list/config/initializers/wrap_parameters.rb": [
+      "/Users/andrew/Documents/playground/andrew_todo_list/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -187,101 +187,201 @@
         1,
         null
       ],
-      "/Users/angela/Documents/RubyMine Projects/playground/todo_list/app/controllers/application_controller.rb": [
+      "/Users/andrew/Documents/playground/andrew_todo_list/app/controllers/application_controller.rb": [
         1,
         1,
         null
       ],
-      "/Users/angela/Documents/RubyMine Projects/playground/todo_list/app/helpers/application_helper.rb": [
+      "/Users/andrew/Documents/playground/andrew_todo_list/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/angela/Documents/RubyMine Projects/playground/todo_list/app/helpers/example_helper.rb": [
+      "/Users/andrew/Documents/playground/andrew_todo_list/app/helpers/example_helper.rb": [
         1,
         null
       ],
-      "/Users/angela/Documents/RubyMine Projects/playground/todo_list/app/controllers/example_controller.rb": [
+      "/Users/andrew/Documents/playground/andrew_todo_list/app/helpers/tasks_helper.rb": [
         1,
-        1,
-        null,
-        null,
-        1,
-        null,
         null
       ],
-      "/Users/angela/Documents/RubyMine Projects/playground/todo_list/app/models/example.rb": [
+      "/Users/andrew/Documents/playground/andrew_todo_list/app/controllers/example_controller.rb": [
         1,
         1,
-        1,
+        0,
+        null,
+        null,
         1,
         null,
         null
       ],
-      "/Users/angela/Documents/RubyMine Projects/playground/todo_list/config/routes.rb": [
+      "/Users/andrew/Documents/playground/andrew_todo_list/app/models/example.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/andrew/Documents/playground/andrew_todo_list/app/controllers/tasks_controller.rb": [
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null
+      ],
+      "/Users/andrew/Documents/playground/andrew_todo_list/app/models/task.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/andrew/Documents/playground/andrew_todo_list/config/routes.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/andrew/Documents/playground/andrew_todo_list/spec/helpers/tasks_helper_spec.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/Users/andrew/Documents/playground/andrew_todo_list/spec/models/example_spec.rb": [
         1,
         1,
         null,
         1,
+        1,
+        1,
+        1,
+        1,
         null,
         null,
+        null
+      ],
+      "/Users/andrew/Documents/playground/andrew_todo_list/spec/models/task_spec.rb": [
+        1,
         null,
+        1,
+        1,
+        null
+      ],
+      "/Users/andrew/Documents/playground/andrew_todo_list/spec/models/test_spec.rb": [
+        1,
         null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
+        1,
+        1,
         null
       ]
     },
-    "timestamp": 1361841304
+    "timestamp": 1362525515
   }
 }
