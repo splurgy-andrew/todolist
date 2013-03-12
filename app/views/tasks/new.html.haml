@@ -1,22 +1,3 @@
-%h1 Todo List Task
-= form_for @task, :validate => true do |f|
-  %table
-    %tr
-      %th
-        = f.label :title, "Title"
-      %th
-        = f.label :completed, "Completed"
-      %th
-        = f.label :position, "Position"
-    %tr
-      %td
-        = f.text_field :title
-      %td
-        = f.check_box :completed
-      %td
-        = f.text_field :position
-      %td
-        - if @task.id # task exists already
-          = f.submit 'Edit'
-        - else
-          = f.submit 'Create'
+%h1 Add Todo List Task
+= render "form"
+= submit_tag "Add Task"
