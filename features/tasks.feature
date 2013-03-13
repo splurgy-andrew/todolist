@@ -21,5 +21,3 @@ Feature: Manage Task
     Given I am on the todo list page
     When I mark a task as complete
     Then the task should be marked as complete
-
-#   Scenario:

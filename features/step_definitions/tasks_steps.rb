@@ -41,7 +41,7 @@ end
 
 When /^I mark a task as complete/i do
   task = Task.create!(:title => "Finish cucumber tests", :position => 1337,
-                      :completed => false, :due_date => true)
+                      :completed => false, :due_date => Date.today)
   task.update_attribute(:completed, true)
 end
 
@@ -49,5 +49,5 @@ Then /^the task should be marked as complete/i do
   task = Task.find_by_position(1337)
   visit '/tasks/'
   page.should have_content (task.title)
-  page.should have_content ("true")
+  page.should have_content ("COMPLETED:")
 end

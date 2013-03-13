@@ -7,6 +7,8 @@
     = csrf_meta_tags
   %body
     = yield
-    %p
-      = link_to "home", :action => :index
+    %br
+    #nav
+      = link_to "home", url_for(:action => :index, :only_path => false)
+      = link_to "new", new_task_url
 
