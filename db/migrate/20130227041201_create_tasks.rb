@@ -4,7 +4,6 @@ class CreateTasks < ActiveRecord::Migration
       t.string :title
       t.boolean :completed
       t.integer :position
-
       t.timestamps
     end
   end
