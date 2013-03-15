@@ -3,9 +3,7 @@ class Task < ActiveRecord::Base
   validates :title, :presence => true, :length => {:maximum => 25}
   validates :due_date, :presence => true
 
-  def category
-    return "personal"
-  end
+  after_initialize :default_value
 
   def overdue?
     if self.due_date < Date.today
@@ -14,4 +12,9 @@ class Task < ActiveRecord::Base
       return false
     end
   end
+
+  private
+    def default_value
+      self.category= "personal" if category.nil?
+    end
 end

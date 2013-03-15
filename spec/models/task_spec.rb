@@ -14,13 +14,13 @@ describe "Task" do
         :completed => false,
         :position => 1,
         :due_date => Date.today,
-        :category => "personal"
+        :category => "work"
       })
       task.title.should == "rspec test"
       task.completed.should be false
       task.position.should be 1
       task.due_date.should == Date.today
-      task.category.should == "personal"
+      task.category.should == "work"
     end
   end
 
