@@ -22,6 +22,39 @@ describe "Task" do
       task.due_date.should == Date.today
       task.category.should == "work"
     end
+
+    it "does not validate 'test' for category" do
+      task = Task.new({
+          :title => "rspec test",
+          :completed => false,
+          :position => 1,
+          :due_date => Date.today + 1,
+          :category => "test"
+      })
+      task.valid?.should be_false
+    end
+
+    it "validates category as 'work' " do
+      task = Task.new({
+        :title => "rspec test",
+        :completed => false,
+        :position => 1,
+        :due_date => Date.today + 1,
+        :category => "work"
+      })
+      task.valid?.should be_true
+    end
+
+    it "validates category as 'personal' " do
+      task = Task.new({
+       :title => "rspec test",
+       :completed => false,
+       :position => 1,
+       :due_date => Date.today + 1,
+       :category => "personal"
+      })
+      task.valid?.should be_true
+    end
   end
 
   context "overdue?" do
