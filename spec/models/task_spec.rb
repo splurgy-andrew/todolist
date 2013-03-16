@@ -3,6 +3,17 @@ require 'spec_helper'
 describe "Task" do
   context "model test" do
 
+    it "does not validate due_date on completed tasks" do
+      task = Task.new({
+        :title => "rspec test",
+        :completed => true,
+        :position => 1,
+        :due_date => (Date.today - 1),
+        :category => "work"
+      })
+      task.valid?.should be_true
+    end
+
     it "does not validate blank due_date field" do
       task = Task.new({
         :title => "rspec test",
