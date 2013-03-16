@@ -3,6 +3,50 @@ require 'spec_helper'
 describe "Task" do
   context "model test" do
 
+    it "does not validate blank due_date field" do
+      task = Task.new({
+        :title => "rspec test",
+        :completed => false,
+        :position => 1,
+        :due_date => nil,
+        :category => "work"
+      })
+      task.valid?.should be_false
+    end
+
+    it "does validate future dates as for due_date field" do
+      task = Task.new({
+        :title => "rspec test",
+        :completed => false,
+        :position => 1,
+        :due_date => Date.today + 1,
+        :category => "work"
+      })
+      task.valid?.should be_true
+    end
+
+    it "does not validate past dates as for due_date field" do
+      task = Task.new({
+        :title => "rspec test",
+        :completed => false,
+        :position => 1,
+        :due_date => Date.today - 1,
+        :category => "work"
+      })
+      task.valid?.should be_false
+    end
+
+    it "does not validate today for due_date field" do
+      task = Task.new({
+        :title => "rspec test",
+        :completed => false,
+        :position => 1,
+        :due_date => Date.today,
+        :category => "work"
+      })
+      task.valid?.should be_false
+    end
+
     it "has a default value for category field" do
       task = Task.new()
       task.category.should == "personal"
