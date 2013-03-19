@@ -3,14 +3,19 @@ class Task < ActiveRecord::Base
   validates :title, :presence => true, :length => {:maximum => 25}
   validates :due_date, :presence => true
   validate :due_date_in_the_future
+  validate :completed_objects_are_immutable, :on => :update
   validates :category, :inclusion => {:in => %w(personal work),
                                       :message => "%(value) is not a valid category"}
 
   after_initialize :default_value
 
+  def completed_objects_are_immutable
+    errors.add(:completed, "completed tasks are not editable") if self.completed?
+  end
+
   def due_date_in_the_future
     if not self.completed? and not self.due_date.blank?
-      if (self.due_date <=> Date.today) <= 0
+      if (self.due_date <=> Date.today) < 0
         errors.add(:due_date, "due_date must be in the future")
       end
     end

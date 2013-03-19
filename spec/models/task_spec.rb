@@ -2,6 +2,29 @@ require 'spec_helper'
 
 describe "Task" do
   context "model test" do
+    it "cannot be updated when marked as complete" do
+      task = Task.new({
+        :title => "rspec test",
+        :completed => true,
+        :position => 1,
+        :due_date => (Date.today - 1),
+        :category => "work"
+      })
+      task.update_attributes({:title => "rspec test edited"})
+      task.save.should be_false
+    end
+
+    it "can be updated if not completed" do
+      task = Task.new({
+        :title => "rspec test",
+        :completed => false,
+        :position => 1,
+        :due_date => (Date.today + 1),
+        :category => "work"
+      })
+      task.update_attributes({:title => "rspec test edited"})
+      task.save.should be_true
+    end
 
     it "does not validate due_date on completed tasks" do
       task = Task.new({
@@ -47,12 +70,12 @@ describe "Task" do
       task.valid?.should be_false
     end
 
-    it "does not validate today for due_date field" do
+    it "does not validate yesterday for due_date field" do
       task = Task.new({
         :title => "rspec test",
         :completed => false,
         :position => 1,
-        :due_date => Date.today,
+        :due_date => Date.today - 1,
         :category => "work"
       })
       task.valid?.should be_false
