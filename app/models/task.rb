@@ -10,7 +10,7 @@ class Task < ActiveRecord::Base
   after_initialize :default_value
 
   def completed_objects_are_immutable
-    errors.add(:completed, "completed tasks are not editable") if self.completed?
+    errors.add(:completed, "completed tasks are not editable") if Task.find(self.id).completed?
   end
 
   def due_date_in_the_future
