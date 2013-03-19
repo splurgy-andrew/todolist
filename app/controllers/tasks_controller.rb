@@ -22,14 +22,20 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    @task.update_attributes(params[:task])
-    redirect_to tasks_url, :notice => "successfully updated task"
+    if @task.update_attributes(params[:task])
+      redirect_to tasks_url, :notice => "successfully updated task"
+    else
+      render :edit
+    end
   end
 
   def create
-    @task = params[:task]
-    Task.create(@task)
-    redirect_to tasks_url, :notice => "successfully created task"
+    @task = Task.new(params[:task])
+    if @task.save
+      redirect_to tasks_url, :notice => "successfully created task"
+    else
+      render :edit
+    end
   end
 
   def destroy

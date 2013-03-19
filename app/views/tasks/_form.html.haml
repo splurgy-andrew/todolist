@@ -8,6 +8,8 @@
       %th
         = f.label :position, "Position"
       %th
+        = f.label :category, "Category"
+      %th
         = f.label :due_date, "Due Date"
     %tr
       %td
@@ -16,6 +18,8 @@
         = f.check_box :completed
       %td
         = f.text_field :position
+      %td
+        = f.select :category, :options => ["work", "personal"]
       %td
         = f.date_select :due_date
       %td
