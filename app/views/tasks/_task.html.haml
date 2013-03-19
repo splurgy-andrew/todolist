@@ -4,6 +4,6 @@
   .task_edit
     = link_to "edit", (edit_task_url :id => task.id)
   .task_delete
-    = link_to "delete", task_path(task), :method => :delete
+    = button_to "delete", task, :method => :delete
   .task_completed
-    = link_to "completed", task_path(task, :task => {:completed => true}), :method => :put
+    = button_to "completed", task_path(task, :task => {:completed => true}), :method => :put
