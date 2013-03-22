@@ -1,9 +1,9 @@
-.task_title{:class => ("overdue" if task.overdue?)}
-  = (task.completed ? "COMPLETED: " : "") + task.title
-  = "category: #{task.category}"
-  .task_edit
-    = link_to "edit", (edit_task_url :id => task.id)
-  .task_delete
-    = button_to "delete", task, :method => :delete
-  .task_completed
-    = button_to "completed", task_path(task, :task => {:completed => true}), :method => :put
+.task_title{:class => task_class(task)}
+  = task.title
+.category= "category: #{task.category}"
+.task_edit
+  = link_to "edit", (edit_task_url :id => task.id)
+.task_delete
+  = button_to "delete", task, :method => :delete
+.task_completed
+  = button_to "completed", task_path(task, :task => {:completed => true}), :method => :put

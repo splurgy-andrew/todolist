@@ -9,6 +9,10 @@ class Task < ActiveRecord::Base
 
   after_initialize :default_value
 
+  def self.sort(column)
+    return Task.order(column)
+  end
+
   def completed_objects_are_immutable
     errors.add(:completed, "completed tasks are not editable") if Task.find(self.id).completed?
   end
