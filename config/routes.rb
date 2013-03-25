@@ -1,11 +1,6 @@
 TodoList::Application.routes.draw do
   resources :tasks
 
-
-  get "example/index"
-
-  get "example/about"
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
