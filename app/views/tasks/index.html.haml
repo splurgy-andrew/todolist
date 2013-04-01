@@ -1,7 +1,12 @@
 %h1 Tasks
 = "there is nothing here, add a task" if @tasks.length == 0
-.task_list
-  - @tasks.each do |task|
-    .task
+%table.table
+  %thead
+    %tr
+      %th #
+      %th Title
+      %th Category
+      %th Actions
+  %tbody
+    - @tasks.each do |task|
       = render "task", :task => task
-      %br

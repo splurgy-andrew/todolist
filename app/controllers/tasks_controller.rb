@@ -1,6 +1,10 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.order params[:sort]
+    if params[:sort].blank?
+      @tasks = Task.order :position
+    else
+      @tasks = Task.order params[:sort]
+    end
   end
 
   def show
