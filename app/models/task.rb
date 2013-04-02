@@ -9,6 +9,10 @@ class Task < ActiveRecord::Base
 
   after_initialize :default_value
 
+  before_save do
+    self.title = self.title.downcase
+  end
+
   def self.sort(column)
     return Task.order(column)
   end

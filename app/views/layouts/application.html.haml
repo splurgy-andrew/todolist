@@ -19,11 +19,6 @@
     .navbar.navbar-inverse.navbar-fixed-top
       .navbar-inner
         .container
-          -#%a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-
           = link_to '<i class="icon-plus btn btn-navbar"></i>'.html_safe, new_task_url
           = link_to "Todo List", url_for(:action => :index, :only_path => false), :class => "brand"
           .container.nav-collapse
