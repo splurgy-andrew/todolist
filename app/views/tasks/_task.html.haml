@@ -1,6 +1,6 @@
-%tr
+%tr{:class => overdue_task(task)}
   %td= task.position
-  %td{:class => task_class(task)}
+  %td{:class => completed_task(task)}
     = task.title.downcase
   %td.category= task.category
   %td

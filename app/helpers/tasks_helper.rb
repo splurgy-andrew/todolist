@@ -1,11 +1,16 @@
 module TasksHelper
-  def task_class(task)
-    if task.completed? and task.overdue?
+  def completed_task(task)
+    if task.completed?
       return "completed"
-    elsif task.completed?
-      return "completed"
-    elsif task.overdue?
-       return "overdue"
     end
   end
+
+  def overdue_task(task)
+    if task.overdue?
+      if not task.completed?
+        return "overdue"
+      end
+    end
+  end
+
 end
