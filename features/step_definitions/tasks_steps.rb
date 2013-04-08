@@ -1,3 +1,11 @@
+Before do
+  @owner = Owner.new({
+                         :name => "andrew cucumber",
+                         :email => "andrew@splurgy.org"
+                     })
+  @owner.save
+end
+
 Given /^I am on a blank todo list page/i do
   visit '/tasks/'
 end
@@ -13,7 +21,8 @@ Given /^I am on the todo list page/i do
     :completed => false,
     :position => 1,
     :due_date => (Date.today + 1),
-    :category => "work"
+    :category => "work",
+    :owner_id => @owner.id
   })
   task.save
 end
@@ -31,7 +40,7 @@ When /^I add a task/i do
   page.should have_content "Due Date"
   page.should have_content "Category"
   Task.create!(:title => "Finish cucumber tests", :position => 1,
-               :completed => false, :due_date => Date.today)
+               :completed => false, :due_date => Date.today, :owner_id => @owner.id)
 end
 
 Then /^the added task should show/i do
@@ -42,7 +51,7 @@ end
 
 When /^I delete a task/i do
   task = Task.create!(:title => "Finish cucumber tests", :position => 1,
-                      :completed => false, :due_date => Date.today)
+                      :completed => false, :due_date => Date.today, :owner_id => @owner.id)
 end
 
 Then /^the task should be deleted/i do
@@ -54,7 +63,7 @@ end
 
 When /^I mark a task as complete/i do
   task = Task.create!(:title => "Finish cucumber tests", :position => 1337,
-                      :completed => false, :due_date => Date.today)
+                      :completed => false, :due_date => Date.today, :owner)
   task.update_attribute(:completed, true)
 end
 

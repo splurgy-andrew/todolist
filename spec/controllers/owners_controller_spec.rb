@@ -38,7 +38,8 @@ describe OwnersController do
     it "assigns all owners as @owners" do
       owner = Owner.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:owners).should eq([owner])
+      puts owner.inspect
+      assigns(:owners).last.should eq(owner)
     end
   end
 
