@@ -23,7 +23,9 @@
     = f.label :due_date, "Due Date", :class => "control-label"
     .controls
       = f.date_select :due_date, {:order => [:month, :day, :year]}
-  - if @task.id?
-    = submit_tag "Save Task", :class => "btn"
-  - else
-    = submit_tag "Add Task", :class => "btn"
+  .control-group
+    .controls
+      - if @task.id?
+        = submit_tag "Save Task", :class => "btn"
+      - else
+        = submit_tag "Add Task", :class => "btn"

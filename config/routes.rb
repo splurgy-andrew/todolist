@@ -1,4 +1,7 @@
 TodoList::Application.routes.draw do
+  resources :owners
+
+
   resources :tasks
 
   # The priority is based upon order of creation:

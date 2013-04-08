@@ -1,2 +1,11 @@
-%h1 Task
-= render "task", :task => @task
+%h1= @task.title
+%p= "completed: #{@task.completed}"
+%p= "position: #{@task.position}"
+%p= "due date: #{@task.due_date.strftime('%b %d %Y')}"
+%p= "owner: #{@task.owner.name}"
+%p= "category: #{@task.category}"
+- unless @task.completed?
+  = link_to "edit", (edit_task_url :id => @task.id), :class => "btn btn-small task_edit"
+= button_to "delete", @task, :method => :delete, :class => "btn btn-small task_delete", :form_class => "task_delete"
+- unless @task.completed?
+  = button_to "completed", task_path(@task, :task => {:completed => true}), :method => :put, :class => "btn btn-small task_completed", :form_class => "task_complete"

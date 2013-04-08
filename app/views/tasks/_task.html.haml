@@ -2,6 +2,8 @@
   %td= task.position
   %td{:class => completed_task(task)}
     = task.title.downcase
+  %td= task.due_date.strftime(('%b %d'))
+  %td= task.owner.name
   %td.category= task.category
   %td
     - unless task.completed?

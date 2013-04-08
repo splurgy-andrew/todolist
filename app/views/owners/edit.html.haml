@@ -1,0 +1,6 @@
+%h1 Edit #{@owner.name}
+
+= render 'form', :owner => @owner
+= link_to 'Show', @owner
+\|
+= link_to 'Back', owners_path

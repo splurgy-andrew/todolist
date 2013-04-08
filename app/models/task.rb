@@ -1,5 +1,8 @@
 class Task < ActiveRecord::Base
-  attr_accessible :completed, :position, :title, :due_date, :category
+  attr_accessible :completed, :position, :title, :due_date, :category, :owner_id
+
+  belongs_to :owner
+
   validates :title, :presence => true, :length => {:maximum => 25}
   validates :due_date, :presence => true
   validate :due_date_in_the_future

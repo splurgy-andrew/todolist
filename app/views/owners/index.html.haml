@@ -1,0 +1,17 @@
+%h1 owners
+
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th Actions
+  %tbody
+    - @owners.each do |owner|
+      %tr
+        %td= owner.name
+        %td= owner.email
+        %td
+          = link_to 'Show', owner, :class => "btn btn-small"
+          = link_to 'Edit', edit_owner_path(owner), :class => "btn btn-small"
+          = link_to 'Delete', owner, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-small"

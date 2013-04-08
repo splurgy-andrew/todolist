@@ -1,2 +1,5 @@
 %li= link_to "home", url_for(:action => :index, :only_path => false)
-%li= link_to "new", new_task_url
+%li= link_to "tasks", tasks_path
+%li= link_to "owners", owners_path
+%li= link_to "new task", new_task_url
+%li= link_to "new owner", new_owner_url
