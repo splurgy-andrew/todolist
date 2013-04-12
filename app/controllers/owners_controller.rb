@@ -1,4 +1,8 @@
 class OwnersController < ApplicationController
+
+
+  #respond_to :json
+
   # GET /owners
   # GET /owners.json
   def index
