@@ -1,0 +1,16 @@
+- unless owner.blank?
+  %tr
+    %td= owner.name
+    %td= owner.email
+    %td
+      = link_to 'Show', owner, :class => "btn btn-small"
+      = link_to 'Edit', edit_owner_path(owner), :class => "btn btn-small"
+      = link_to 'Delete', owner, :method => :delete, :class => "btn btn-small btn-delete", :remote => true, :'data-type' => 'json'
+- else
+  %tr#new_owner_show.hidden
+    %td#owner_name {NAME}
+    %td#owner_email {EMAIL}
+    %td
+      = link_to 'Show', owner_path(:id => "_ID_"), :class => "btn btn-small"
+      = link_to 'Edit', edit_owner_path(:id => "_ID_"), :class => "btn btn-small"
+      = link_to 'Delete', owner_path(:id => "_ID_"), :method => :delete, :class => "btn btn-small btn-delete", :remote => true, :'data-type' => 'json'

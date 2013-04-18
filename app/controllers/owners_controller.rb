@@ -1,11 +1,10 @@
 class OwnersController < ApplicationController
-
-
   #respond_to :json
 
   # GET /owners
   # GET /owners.json
   def index
+    @owner = Owner.new
     @owners = Owner.all
 
     respond_to do |format|
@@ -49,7 +48,7 @@ class OwnersController < ApplicationController
     respond_to do |format|
       if @owner.save
         format.html { redirect_to @owner, notice: 'Owner was successfully created.' }
-        format.json { render json: @owner, status: :created, location: @owner }
+        format.json { render json: @owner, status: :ok, location: @owner }
       else
         format.html { render action: "new" }
         format.json { render json: @owner.errors, status: :unprocessable_entity }
@@ -76,12 +75,16 @@ class OwnersController < ApplicationController
   # DELETE /owners/1
   # DELETE /owners/1.json
   def destroy
-    @owner = Owner.find(params[:id])
-    @owner.destroy
+    @owner = Owner.find_by_id(params[:id])
 
     respond_to do |format|
-      format.html { redirect_to owners_url }
-      format.json { head :no_content }
+      if !@owner.nil? && @owner.destroy
+        format.html { redirect_to owners_url }
+        format.json { render json: {}, status: :ok }
+      else
+        format.html { }
+        format.json { render json: {},  status: :bad_request}
+      end
     end
   end
 end

@@ -1,0 +1,5 @@
+%tr#new_owner_add.hidden
+  = form_for owner, :validate => true, :html => {:class => 'form-inline', :'data-type' => 'json'}, :remote => true do |f|
+    %td= f.text_field :name, :class => "input-small", :placeholder => "name"
+    %td= f.text_field :email, :class => "input-small", :placeholder => "hi@example.com"
+    %td= f.submit 'Add', :class => "btn btn-small"
