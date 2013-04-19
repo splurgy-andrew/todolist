@@ -2,47 +2,32 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-$(document).on('ajax:success', '.btn-delete', (a,b,c) ->
-  console.log("a: ")
-  console.log(a)
-  console.log("\nb: ")
-  console.log(b)
-  console.log( "\nc: ")
-  console.log(c)
-  if c == "success"
+$(document).on('ajax:success', '.btn-delete', (event,data,status) ->
+  if status == "success"
     $(this).closest("tr").remove()
 )
 
 $("#nav_new_owner").click (e) ->
   $("#new_owner_add").removeClass "hidden"
-  false
+  e.preventDefault()
 
-$("#new_owner").on "ajax:success", (a, b, c, d) ->
-  handle_success(a, b, c, d)
+$("#new_owner").on "ajax:success", (event, data, status, xhr) ->
+  handle_success(event, data, status, xhr)
 
-handle_success = (a, b, c, d) ->
-  console.log("a: ")
-  console.log(a)
-  console.log("\nb: ")
-  console.log(b)
-  console.log( "\nc: ")
-  console.log(c)
-  console.log( "\nd: ")
-  console.log(d)
-  if c == "success"
-    $("#new_owner_add").find("input[type=text], textarea").val("") #clear form
+handle_success = (event, data, status, xhr) ->
+  if status == "success"
+    $("#new_owner_add").find("input[type=text], textarea").val("")
     $("#new_owner_add").addClass "hidden"
     new_row = $("#new_owner_show").clone()
     new_row = new_row.attr("id", "").removeClass("hidden")
-    owner_name = new_row.find("td#owner_name")
-    owner_email = new_row.find("td#owner_email")
-    owner_name.text(owner_name.text().replace("{NAME}", b.name)).attr("id", "")
-    owner_email.text(owner_email.text().replace("{EMAIL}", b.email)).attr("id", "")
-    new_row.find("a").attr "href", ->
-      @href.replace "_ID_", b.id
-    $("#owner_table tr.hidden:first").before(new_row)
 
-#  .on( events [, selector ] [, data ], handler(eventObject) )
+    new_row.find("td.replace_field").each ->
+      $(this).text( $(this).text().replace("{NAME}", data.name) )
+      $(this).text( $(this).text().replace("{EMAIL}", data.email) )
+
+    new_row.find("a").attr "href", ->
+      @href.replace "_ID_", data.id
+    $("#owner_table tr.hidden:first").before(new_row)
 
 $("#new_owner").on "ajax:error", (xhr, status, error) ->
   handle_error(xhr, status, error)
